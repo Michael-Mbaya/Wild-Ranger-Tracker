@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wild-Ranger Tracker{{/block}}</title>
+    <link rel="shortcut icon" href="/images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/images/navbar-logo.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-info">
+<div>
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img class="navbar-logo" src="/images/navbar-logo.jpeg">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/endangered">Endangered Animals</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/non-endangered">Other Animals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings">Sightings</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container bg-secondary contents">
+    <div class="my-2 row justify-content-center">
+        <p class="my-1"><a href="/" class="btn btn-lg btn-warning mx-3">Add Endangered</a></p>
+        <p class="my-1"><a href="/" class="btn btn-lg btn-success mx-3">Add Non-Endangered</a></p>
+        <p class="my-1"><a href="/" class="btn btn-lg btn-success mx-3">Add Sighting</a></p>
+    </div>
+    {{#block "content"}}
+    {{/block}}
+</div>
+
+<div class="footer text-center bg-dark p-3" id="contact">
+    <div class="container">
+        <p class=" text-white lead">Copyright &copy; Michael-Mbaya</p>
+    </div>
+</div>
+
+</body>
+</html>

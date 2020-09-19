@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.wildanimalsranger'
@@ -16,6 +17,10 @@ dependencies {
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile "com.sparkjava:spark-core:2.6.0"
     compile 'org.sql2o:sql2o:1.5.4'
+    compile "com.sparkjava:spark-template-handlebars:2.5.5"
     compile group: 'com.h2database', name: 'h2', version: '1.4.191'    //for local machine db
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
+
+applicationName = "wildlife"
+mainClassName = 'App'
