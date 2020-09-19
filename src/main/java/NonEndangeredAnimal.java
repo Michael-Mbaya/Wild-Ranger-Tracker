@@ -13,10 +13,6 @@ public class NonEndangeredAnimal extends Animal {
         this.type = ANIMAL_TYPE;
     }
 
-    public String getHealth() {
-        return health;
-    }
-
     public static List<NonEndangeredAnimal> all() {
         String sql = "SELECT * FROM animals WHERE type=:type; ";
         try (Connection con = DB.sql2o.open()) {

@@ -16,11 +16,6 @@ public class EndangeredAnimal extends Animal {
 
     }
 
-    public String getHealth() {
-        return health;
-    }
-
-
     public static List<EndangeredAnimal> all() {
         String sql = "SELECT * FROM animals WHERE type=:type;";
         try (Connection con = DB.sql2o.open()) {

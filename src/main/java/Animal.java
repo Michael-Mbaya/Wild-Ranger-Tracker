@@ -23,6 +23,14 @@ public abstract class Animal {
         return id;
     }
 
+    public String getHealth() {
+        return health;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
