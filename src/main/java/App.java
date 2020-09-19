@@ -23,7 +23,7 @@ public class App {
         //shows Endangered form
         get("/endangered/new", ((request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "endangered-form.hbs");
+            return new ModelAndView(model, "In-Danger-Form.hbs");
         }), new HandlebarsTemplateEngine());
 
         //Saves endangered form data
@@ -50,7 +50,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<EndangeredAnimal> endangeredAnimals = EndangeredAnimal.all();
             model.put("endangeredAnimals", endangeredAnimals);
-            return new ModelAndView(model, "endangered-list.hbs");
+            return new ModelAndView(model, "Animals-In-Danger.hbs");
         }), new HandlebarsTemplateEngine());
 
         //Delete endangered animal

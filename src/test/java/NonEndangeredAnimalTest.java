@@ -21,6 +21,18 @@ public class NonEndangeredAnimalTest {
     }
 
     @Test
+    public void getAge_nonEndangeredAnimalInstantiatesWithName_Lion() {
+        NonEndangeredAnimal testAnimal = new NonEndangeredAnimal("Lion", "young", "Okay");
+        assertEquals("young", testAnimal.getAge());
+    }
+
+    @Test
+    public void getHealth_nonEndangeredAnimalInstantiatesWithName_Lion() {
+        NonEndangeredAnimal testAnimal = new NonEndangeredAnimal("Lion", "young", "Okay");
+        assertEquals("Okay", testAnimal.getHealth());
+    }
+
+    @Test
     public void equals_returnsTrueIfNameIsSame_true() {
         NonEndangeredAnimal testAnimal = new NonEndangeredAnimal("Lion", "young","Okay");
         NonEndangeredAnimal anotherAnimal = new NonEndangeredAnimal("Lion", "young","Okay");
