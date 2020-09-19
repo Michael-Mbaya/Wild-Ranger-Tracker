@@ -3,15 +3,15 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class NonEndangeredAnimal extends Animal {
-    private String health;
-    public static final String DATABASE_TYPE = "non-endangered";
+
+    public static final String ANIMAL_TYPE = "non-endangered";
 
 
     public NonEndangeredAnimal(String name, String age, String health) {
         this.name = name;
         this.age = age;
         this.health = health;
-        this.type = DATABASE_TYPE;
+        this.type = ANIMAL_TYPE;
     }
 
     public String getHealth() {
@@ -22,7 +22,7 @@ public class NonEndangeredAnimal extends Animal {
         String sql = "SELECT * FROM animals WHERE type=:type; ";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
-                    .addParameter("type", DATABASE_TYPE)
+                    .addParameter("type", ANIMAL_TYPE)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(NonEndangeredAnimal.class);
 
