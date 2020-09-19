@@ -59,3 +59,12 @@ body {
     background-size:100% 100%;
     background-repeat:no-repeat;
 }
+
+.button-gradient{
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+td{
+    text-align:center;
+}
