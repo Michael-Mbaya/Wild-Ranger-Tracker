@@ -43,12 +43,6 @@ body {
     width: 100%;
 }
 
-.hero-card{
-    background-image: url(/images/hero-background.jpg);
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-}
-
 .navbar-logo{
     height:50px;
     width:50px;
@@ -67,4 +61,8 @@ body {
 
 td{
     text-align:center;
+}
+
+.animal-list-holder{
+    min-height:530px;
 }

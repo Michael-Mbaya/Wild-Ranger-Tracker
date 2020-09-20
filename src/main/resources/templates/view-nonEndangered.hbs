@@ -1,23 +1,24 @@
-{{#partial "content"}}
-    <div class="animal-list-holder">
+    {{#partial "content"}}
+        <div class="animal-list-holder">
 
-                    <div class="text-center">
-                        <h1>Endangered Animals</h1>
-                    </div>
+            <div class="text-center">
+                <h1>Other Animals (Non-Endangered)</h1>
+            </div>
         <div class="d-flex justify-content-center align-items-center">
-            {{#if endangeredAnimals}}
+                {{#if nonEndangeredAnimals}}
+
                 <div class="table-responsive">
                     <table class="table table-hover table-info">
                         <thead class="thead-dark">
-                            <tr>
-                                <th>Animal</th>
-                                <th>Age</th>
-                                <th>Health</th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Age</th>
+                            <th>Health</th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-                        {{#each endangeredAnimals}}
+                        {{#each nonEndangeredAnimals}}
                             <tr>
                                 <td>{{name}}</td>
                                 <td>{{age}}</td>
@@ -29,16 +30,16 @@
                     </table>
                 </div>
 
-                    {{else}}
-                        <h1 class="text-center">No Endangered Animals Recorded Yet!
-                            <i class="fa fa-smile-o text-warning" aria-hidden="true"></i>
-                        </h1>
-                </div>
+            {{else}}
+                <h1 class="text-center">No Other Non-Endangered Animals Recorded Yet!
+                    <i class="fa fa-frown-o text-danger" aria-hidden="true"></i>
+                </h1>
+            </div>
             {{/if}}
 
         </div>
-    </div>
+        </div>
 
-{{/partial}}
+    {{/partial}}
 
-{{> layout.hbs}}
+    {{> layout.hbs}}

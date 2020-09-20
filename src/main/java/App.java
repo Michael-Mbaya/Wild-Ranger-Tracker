@@ -70,6 +70,43 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-    }
+        //Displays non-endangered form
+        get("/non-endangered/new", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "non-endangered-form.hbs");
+        }), new HandlebarsTemplateEngine());
 
+        //Saves non-endangered form data
+        post("/non-endangered/new", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            String age = request.queryParams("age");
+            String health = request.queryParams("health");
+
+            NonEndangeredAnimal newNonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
+            newNonEndangeredAnimal.save();
+            response.redirect("/non-endangered");
+
+            return null;
+
+        }), new HandlebarsTemplateEngine());
+
+        //Displays non-endangered animals
+        get("/non-endangered", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<NonEndangeredAnimal> nonEndangeredAnimals = NonEndangeredAnimal.all();
+            model.put("nonEndangeredAnimals", nonEndangeredAnimals);
+            return new ModelAndView(model, "view-nonEndangered.hbs");
+        }), new HandlebarsTemplateEngine());
+
+        //Delete non-endangered animal
+        get("/non-endangered/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            NonEndangeredAnimal.find(Integer.parseInt(request.params(":id"))).delete();
+            response.redirect("/non-endangered");
+
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+    }
 }
