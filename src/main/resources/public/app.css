@@ -22,19 +22,13 @@ i{
     margin-left:3px;
 }
 
-
-
 body {
     position: relative;
     min-height: 100%;
-    margin: 0 0 80px; /* bottom = footer height */
 }
 
 .footer {
     position: relative;
-    left: 0;
-    bottom: 0;
-    height: 80px;
     width: 100%;
 }
 
