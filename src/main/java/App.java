@@ -73,7 +73,7 @@ public class App {
         //Displays non-endangered form
         get("/non-endangered/new", ((request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "non-endangered-form.hbs");
+            return new ModelAndView(model, "Not-Danger-Form.hbs");
         }), new HandlebarsTemplateEngine());
 
         //Saves non-endangered form data
@@ -96,7 +96,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<NonEndangeredAnimal> nonEndangeredAnimals = NonEndangeredAnimal.all();
             model.put("nonEndangeredAnimals", nonEndangeredAnimals);
-            return new ModelAndView(model, "view-nonEndangered.hbs");
+            return new ModelAndView(model, "Animals-Not-Danger.hbs");
         }), new HandlebarsTemplateEngine());
 
         //Delete non-endangered animal

@@ -1,40 +1,41 @@
 {{#partial "content"}}
 
     <div class="animal-list-holder">
+
         <div class="text-center">
-            <h1>Endangered Animals</h1>
+            <h1>Other Animals (Non-Endangered)</h1>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-        {{#if endangeredAnimals}}
+        {{#if nonEndangeredAnimals}}
             <div class="table-responsive">
                 <table class="table table-hover table-info">
                     <thead class="thead-dark">
-                            <tr>
-                                <th>Animal</th>
-                                <th>Age</th>
-                                <th>Health</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Age</th>
+                            <th>Health</th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    {{#each endangeredAnimals}}
+                    {{#each nonEndangeredAnimals}}
                         <tr>
                             <td>{{name}}</td>
                             <td>{{age}}</td>
                             <td>{{health}}</td>
                             <td><a href="/endangered/{{id}}/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</a></td>
                         </tr>
-                        {{/each}}
-                        </tbody>
+                    {{/each}}
+                    </tbody>
                 </table>
             </div>
 
-        {{else}}
-            <h1 class="text-center">No Endangered Animals Recorded Yet!
-                <i class="fa fa-smile-o text-warning" aria-hidden="true"></i>
-            </h1>
+            {{else}}
+                <h1 class="text-center">No Other Non-Endangered Animals Recorded Yet!
+                    <i class="fa fa-frown-o text-danger" aria-hidden="true"></i>
+                </h1>
         </div>
-        {{/if}}
+            {{/if}}
 
     </div>
     </div>
