@@ -4,9 +4,11 @@
     <title>{{#block "title"}}Wild-Ranger Tracker{{/block}}</title>
     <link rel="shortcut icon" href="/images/favicon.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/images/navbar-logo.png" sizes="32x32" type="image/png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -35,6 +37,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/non-endangered">Other Animals</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/sightings">Sightings</a>
             </li>
@@ -46,7 +49,7 @@
     <div class="my-2 row justify-content-center">
         <p class="my-1"><a href="/endangered/new" class="btn btn-lg btn-warning mx-3">Add Endangered</a></p>
         <p class="my-1"><a href="/non-endangered/new" class="btn btn-lg btn-success mx-3">Add Non-Endangered</a></p>
-        <p class="my-1"><a href="/" class="btn btn-lg btn-success mx-3">Add Sighting</a></p>
+        <p class="my-1"><a href="/sighting/new" class="btn btn-lg btn-success mx-3">Add Sighting</a></p>
     </div>
     {{#block "content"}}
     {{/block}}

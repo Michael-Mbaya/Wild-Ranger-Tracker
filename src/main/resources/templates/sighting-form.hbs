@@ -1,0 +1,86 @@
+{{#partial "content"}}
+    <div class="container">
+        <div class="row container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <!--Section: Live preview-->
+                <div class="form-dark">
+
+                    <!--Form without header-->
+                    <div class="card card-image"
+                         style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg'); width: 28rem;">
+                        <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+
+                            <!--Header-->
+                            <div class="text-center">
+                                <h3 class="amber-text mb-5 mt-4 font-weight-bold"><strong>ADD</strong> <a
+                                        class="amber-text font-weight-bold"><strong> SIGHTING</strong></a></h3>
+                            </div>
+
+                            <br>
+
+                            <!--Body-->
+                            <form action="/sighting/new" method="post">
+
+                                <label for="rangerName">Ranger Name</label>
+                                <input type="text" id="rangerName" class="form-control" name="rangerName">
+
+                                <br>
+                                <label for="animalId">Animal</label>
+                                <br>
+                                <select class="browser-default custom-select" id="animalId" name="animalId">
+                                    <option selected>Select Animal</option>
+                                    {{#each animals}}
+                                        <option value="{{id}}">{{name}}</option>
+
+                                    {{/each}}
+
+                                </select>
+
+                                <br>
+
+                                <label for="location">Location</label>
+                                <br>
+                                <select class="browser-default custom-select" id="location" name="location">
+                                    <option selected>Select Location</option>
+                                    <option value="Zone A">Zone A</option>
+                                    <option value="Zone B">Zone B</option>
+                                    <option value="Zone C">Zone C</option>
+                                </select>
+
+                                <br>
+                                <!--Grid row-->
+                                <div class="row d-flex align-items-center mb-4">
+                                    <br>
+                                    <br>
+
+                                    <!--Grid column-->
+                                    <div class="text-center mb-3 col-md-12">
+                                        <button type="submit" class="btn peach-gradient z-depth-1">SUBMIT</button>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+
+
+                            </form>
+                            <!--Grid column-->
+
+                        </div>
+                    </div>
+                    <!--/Form without header-->
+
+                </div>
+                <!--Section: Live preview-->
+
+            </div>
+            <div class="ol-md-3"></div>
+
+        </div>
+
+
+
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}

@@ -1,0 +1,55 @@
+{{#partial "content"}}
+    <div class="sighting">
+        <div class="row container">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="sighting-heading">
+                  <h1 class="text-center">Sightings</h1>
+                </div>
+                <div id="sighting-table">
+                    {{#if sightings}}
+                        {{#each sightings}}
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                <tr>
+                                    <th>SightingId</th>
+                                    <th>AnimalId</th>
+                                    <th>Location</th>
+                                    <th>Ranger's Name</th>
+                                    <th>Time Recorded</th>
+                                    <th></th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{id}}</td>
+                                    <td>{{animalId}}</td>
+                                    <td>{{location}}</td>
+                                    <td>{{rangerName}}</td>
+                                    <td>{{timeSeen}}</td>
+                                    <td><a href="/sightings/{{id}}/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</a></td>
+
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        {{/each}}
+                    {{else}}
+                        <h1>No Sightings Reported</h1>
+                    {{/if}}
+
+
+                </div>
+
+            </div>
+            <div class="col-md-6"></div>
+
+        </div>
+
+    </div>
+
+{{/partial}}
+
+{{>layout.hbs}}

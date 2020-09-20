@@ -1,6 +1,7 @@
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,6 +108,60 @@ public class App {
 
             return null;
         }, new HandlebarsTemplateEngine());
+
+        //Displays Sighting Form
+        get("/sighting/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+//            List<NonEndangeredAnimal> nonEndangeredAnimals = NonEndangeredAnimal.all();
+            List<EndangeredAnimal> endangeredAnimals = EndangeredAnimal.allAnimals();
+            List<Object> animals = new ArrayList<Object>();
+//            for (int i=0;i<nonEndangeredAnimals.size();i++){
+//                animals.add(NonEndangeredAnimal.all().get(i));
+//            }
+            for (int i=0;i<endangeredAnimals.size();i++){
+                animals.add(EndangeredAnimal.allAnimals().get(i));
+            }
+
+            model.put("animals",animals );
+            return new ModelAndView(model, "sighting-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //Saves sightings
+        post("/sighting/new", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String rangerName = request.queryParams("rangerName");
+            int animalId = Integer.parseInt(request.queryParams("animalId"));
+            String location = request.queryParams("location");
+            try {
+                Sighting sighting = new Sighting(rangerName,animalId,location);
+                sighting.save();
+            } catch (IllegalArgumentException exception) {
+                System.out.println("Please fill in all input fields.");
+            }
+            response.redirect("/sightings");
+
+            return null;
+
+        }), new HandlebarsTemplateEngine());
+
+        //Display sightings
+        get("/sightings", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Sighting> sightings =Sighting.all();
+            model.put("Animal", Animal.class);
+            model.put("sightings", sightings);
+            return new ModelAndView(model, "sighting-view.hbs");
+        }), new HandlebarsTemplateEngine());
+
+        //Delete Sighting
+        get("/sightings/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Sighting.find(Integer.parseInt(request.params(":id"))).delete();
+            response.redirect("/sightings");
+
+            return null;
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }
