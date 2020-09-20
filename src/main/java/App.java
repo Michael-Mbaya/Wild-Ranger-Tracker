@@ -83,13 +83,19 @@ public class App {
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
-
             NonEndangeredAnimal newNonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
             newNonEndangeredAnimal.save();
-            response.redirect("/non-endangered");
+//            response.redirect("/non-endangered");
+            if ( newNonEndangeredAnimal.name.equals("") || newNonEndangeredAnimal.age.equals("Select Age") || newNonEndangeredAnimal.health.equals("Select Health of Animal") ){
+                newNonEndangeredAnimal.delete();
+                response.redirect("/non-endangered/new");
+                showMessageDialog(null, "Please fill all the fields\nName, Age or Health have to be chosen. Please Input correctly");
+            }
+            else {
+                response.redirect("/non-endangered");
+            }
 
             return null;
-
         }), new HandlebarsTemplateEngine());
 
         //Displays non-endangered animals
@@ -132,16 +138,16 @@ public class App {
             String rangerName = request.queryParams("rangerName");
             int animalId = Integer.parseInt(request.queryParams("animalId"));
             String location = request.queryParams("location");
+
             try {
                 Sighting sighting = new Sighting(rangerName,animalId,location);
                 sighting.save();
             } catch (IllegalArgumentException exception) {
-                System.out.println("Please fill in all input fields.");
+                System.out.println("\nPlease fill in all input fields.\n");
             }
             response.redirect("/sightings");
 
             return null;
-
         }), new HandlebarsTemplateEngine());
 
         //Display sightings
@@ -153,7 +159,7 @@ public class App {
             return new ModelAndView(model, "sighting-view.hbs");
         }), new HandlebarsTemplateEngine());
 
-        //Delete Sighting
+        //Delete a Sighting
         get("/sightings/:id/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Sighting.find(Integer.parseInt(request.params(":id"))).delete();
