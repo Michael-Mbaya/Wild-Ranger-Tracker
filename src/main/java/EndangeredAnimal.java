@@ -27,6 +27,15 @@ public class EndangeredAnimal extends Animal {
         }
     }
 
+    public static List<EndangeredAnimal> allAnimals() {
+        String sql = "SELECT * FROM animals;";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(EndangeredAnimal.class);
+        }
+    }
+
     public static EndangeredAnimal find(int id) {
         try (Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM animals where id = :id;";

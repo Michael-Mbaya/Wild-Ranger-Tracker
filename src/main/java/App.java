@@ -20,6 +20,14 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }), new HandlebarsTemplateEngine());
 
+        //shows all Animal species
+        get("/animals", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<EndangeredAnimal> animals = EndangeredAnimal.allAnimals();
+            model.put("animals", animals);
+            return new ModelAndView(model, "All-Animals.hbs");
+        }), new HandlebarsTemplateEngine());
+
         //shows Endangered form
         get("/endangered/new", ((request, response) -> {
             Map<String, Object> model = new HashMap<>();
