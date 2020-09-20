@@ -142,10 +142,13 @@ public class App {
             try {
                 Sighting sighting = new Sighting(rangerName,animalId,location);
                 sighting.save();
+                response.redirect("/sightings");
             } catch (IllegalArgumentException exception) {
                 System.out.println("\nPlease fill in all input fields.\n");
+                showMessageDialog(null, "Please fill all the fields for Sighting Form");
+                response.redirect("/sighting/new");
             }
-            response.redirect("/sightings");
+//            response.redirect("/sightings");
 
             return null;
         }), new HandlebarsTemplateEngine());

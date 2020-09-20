@@ -98,7 +98,7 @@
             <div class="form-group">
                 <label for="animalId">Animal</label>
                 <select class="browser-default custom-select" id="animalId" name="animalId">
-                    <option selected>Select Animal</option>
+                        <option value="0" selected>Select Animal Spotted</option>
                     {{#each animals}}
                         <option value="{{id}}">{{name}}</option>
 
@@ -108,16 +108,16 @@
             </div>
 
             <div class="form-group">
-                <label for="location">Location</label>
+                <label for="location">Select Location</label>
                 <select class="browser-default custom-select" id="location" name="location">
-                    <option selected>Select Location</option>
-                    <option value="Cite 1">Cite 1 (River Bank)</option>
-                    <option value="Cite 2">Cite 2 (Pride Rock)</option>
-                    <option value="Cite 3">Cite 3 (Sun Valley)</option>
-                    <option value="Cite 4">Cite 4 (Entrance Area)</option>
-                    <option value="Cite 5">Cite 5 (Exit A Area)</option>
-                    <option value="Cite 6">Cite 6 (Exit B Area)</option>
-                    <option value="Cite 7">Cite 7 (Resort Mbaya)</option>
+                    <option value="Unknown Area" selected>Select Location</option>
+                    <option value="River Bank">River Bank</option>
+                    <option value="Pride Rock">Pride Rock</option>
+                    <option value="Sub valley">Sun Valley</option>
+                    <option value="Entrance Area">Entrance Area</option>
+                    <option value="Exit A Area">Exit A Area</option>
+                    <option value="Exit B Area">Exit B Area</option>
+                    <option value="Resort Mbaya">Resort Mbaya</option>
                 </select>
             </div>
 
