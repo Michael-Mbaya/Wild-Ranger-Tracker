@@ -49,26 +49,23 @@ public class App {
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
-            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,age,health);
-            newEndangeredAnimal.save();
-            if ( newEndangeredAnimal.name.equals("") || newEndangeredAnimal.age.equals("") || newEndangeredAnimal.health.equals("") ){
-                   newEndangeredAnimal.delete();
-                   response.redirect("/endangered/new");
-                showMessageDialog(null, "Please fill all the fields\nName, Age or Health have to be chosen. Please Input correctly");
-                }
-            else {
-                response.redirect("/endangered");
-            }
 
-//            try {
-//                EndangeredAnimal endangeredAnimal  = new EndangeredAnimal(name,age,health);
-//                endangeredAnimal.save();
-//                response.redirect("/endangered");
-//            } catch (IllegalArgumentException exception) {
-//                System.out.println("\nPlease fill in all input fields.\n");
-//                showMessageDialog(null, "Please fill all fields correctly for This Form");
-//                response.redirect("/endangered/new");
-//            }
+            try {
+                EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name,age,health);
+                if( endangeredAnimal.age.equals("") || endangeredAnimal.health.equals("") ){
+                    endangeredAnimal.delete();
+                    System.out.println("\nPlease fill in all the fields.\n");
+                    showMessageDialog(null, "Please fill all the fields in this Form");
+                    response.redirect("/endangered/new");
+                } else {
+                    endangeredAnimal.save();
+                    response.redirect("/endangered");
+                }
+            } catch (IllegalArgumentException | NullPointerException exception) {
+                System.out.println("\nPlease fill in all input fields.\n");
+                showMessageDialog(null, "Please fill all the fields in this Form");
+                response.redirect("/sighting/new");
+            }
 
             return null;
         }), new HandlebarsTemplateEngine());
@@ -102,27 +99,23 @@ public class App {
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
-            NonEndangeredAnimal newNonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
-            newNonEndangeredAnimal.save();
 
-            if ( newNonEndangeredAnimal.name.equals("") || newNonEndangeredAnimal.age.equals("") || newNonEndangeredAnimal.health.equals("") ){
-                newNonEndangeredAnimal.delete();
-                response.redirect("/non-endangered/new");
-                showMessageDialog(null, "Please fill all the fields\nName, Age or Health have to be chosen. Please Input correctly");
+            try {
+                NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
+                if( nonEndangeredAnimal.age.equals("") || nonEndangeredAnimal.health.equals("") ){
+                    nonEndangeredAnimal.delete();
+                    System.out.println("\nPlease fill in all the fields.\n");
+                    showMessageDialog(null, "Please fill all the fields in this Form");
+                    response.redirect("/non-endangered/new");
+                } else {
+                    nonEndangeredAnimal.save();
+                    response.redirect("/non-endangered");
+                }
+            } catch (IllegalArgumentException | NullPointerException exception) {
+                System.out.println("\nPlease fill in all input fields.\n");
+                showMessageDialog(null, "Please fill all the fields in this Form");
+                response.redirect("/sighting/new");
             }
-            else {
-                response.redirect("/non-endangered");
-            }
-
-//            try {
-//                NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
-//                nonEndangeredAnimal.save();
-//                response.redirect("/non-endangered");
-//            } catch (IllegalArgumentException exception) {
-//                System.out.println("\nPlease fill in all input fields.\n");
-//                showMessageDialog(null, "Please fill all fields correctly for This Form");
-//                response.redirect("/non-endangered/new");
-//            }
 
             return null;
         }), new HandlebarsTemplateEngine());
@@ -166,11 +159,18 @@ public class App {
 
             try {
                 Sighting sighting = new Sighting(rangerName,animalId,location);
-                sighting.save();
-                response.redirect("/sightings");
-            } catch (IllegalArgumentException exception) {
+                if(sighting.getAnimalId()==0 || sighting.getLocation().equals("") ){
+                    sighting.delete();
+                    System.out.println("\nPlease fill in all the fields.\n");
+                    showMessageDialog(null, "Please fill all the fields in the Sightings Form");
+                    response.redirect("/sighting/new");
+                } else {
+                    sighting.save();
+                    response.redirect("/sightings");
+                }
+            } catch (IllegalArgumentException | NullPointerException exception) {
                 System.out.println("\nPlease fill in all input fields.\n");
-                showMessageDialog(null, "Please fill all the fields for Sighting Form");
+                showMessageDialog(null, "Please fill all the fields in the Sightings Form");
                 response.redirect("/sighting/new");
             }
 
