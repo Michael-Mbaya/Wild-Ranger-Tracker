@@ -1,0 +1,66 @@
+div{
+    overflow: hidden;
+}
+
+body{
+    height:100%;
+    width:100%;
+}
+
+@media (min-width: 768px){
+.navbar {
+    border-radius: 0px;
+    }
+}
+
+th{
+    text-align:center;
+}
+
+i{
+    margin-right:3px;
+    margin-left:3px;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+}
+
+.navbar-logo{
+    height:50px;
+    width:50px;
+}
+
+.home-intro{
+    background-image: url(/images/jungle-king.jpg);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+
+.button-gradient{
+  border-radius:20px;
+}
+
+.button-gradient:hover{
+  background-color: #2EE59D;
+  box-shadow: 0px 10px 15px #AFA7A7;
+  color: #fff;
+}
+
+td{
+    text-align:center;
+}
+
+.animal-list-holder{
+    min-height:420px;
+}
+
+form{
+    background-color:#FF5733;
+}

@@ -44,14 +44,12 @@ body {
 }
 
 .button-gradient{
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to bottom right, #D56464, #DE5858);
   border-radius:20px;
 }
 
 .button-gradient:hover{
   background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  box-shadow: 0px 10px 15px #AFA7A7;
   color: #fff;
 }
 
@@ -61,4 +59,8 @@ td{
 
 .animal-list-holder{
     min-height:420px;
+}
+
+form{
+    background-color:#FF5733;
 }

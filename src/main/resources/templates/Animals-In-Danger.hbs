@@ -10,6 +10,7 @@
                 <table class="table table-hover table-info">
                     <thead class="thead-dark">
                             <tr>
+                                <th>AnimalId</th>
                                 <th>Animal</th>
                                 <th>Age</th>
                                 <th>Health</th>
@@ -19,6 +20,7 @@
                     <tbody>
                     {{#each endangeredAnimals}}
                         <tr>
+                            <td>{{id}}</td>
                             <td>{{name}}</td>
                             <td>{{age}}</td>
                             <td>{{health}}</td>
@@ -31,7 +33,8 @@
 
         {{else}}
             <h1 class="text-center">No Endangered Animals Recorded Yet!
-                <i class="fa fa-smile-o text-warning" aria-hidden="true"></i>
+                <i class="fa fa-binoculars text-danger" aria-hidden="true"></i>
+                <i class="fa fa-search text-danger" aria-hidden="true"></i>
             </h1>
         </div>
         {{/if}}

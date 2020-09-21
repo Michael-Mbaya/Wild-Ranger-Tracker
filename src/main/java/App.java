@@ -11,8 +11,16 @@ import static spark.Spark.staticFileLocation;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class App {
-
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
+
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         //shows landing/home page
@@ -85,7 +93,7 @@ public class App {
             String health = request.queryParams("health");
             NonEndangeredAnimal newNonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
             newNonEndangeredAnimal.save();
-//            response.redirect("/non-endangered");
+
             if ( newNonEndangeredAnimal.name.equals("") || newNonEndangeredAnimal.age.equals("Select Age") || newNonEndangeredAnimal.health.equals("Select Health of Animal") ){
                 newNonEndangeredAnimal.delete();
                 response.redirect("/non-endangered/new");
@@ -118,7 +126,6 @@ public class App {
         //Displays Sighting Form
         get("/sighting/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-//            List<NonEndangeredAnimal> nonEndangeredAnimals = NonEndangeredAnimal.all();
             List<EndangeredAnimal> endangeredAnimals = EndangeredAnimal.allAnimals();
             List<Object> animals = new ArrayList<Object>();
 //            for (int i=0;i<nonEndangeredAnimals.size();i++){
@@ -129,7 +136,7 @@ public class App {
             }
 
             model.put("animals",animals );
-            return new ModelAndView(model, "sighting-form.hbs");
+            return new ModelAndView(model, "Sighting-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //Saves sightings
@@ -148,7 +155,6 @@ public class App {
                 showMessageDialog(null, "Please fill all the fields for Sighting Form");
                 response.redirect("/sighting/new");
             }
-//            response.redirect("/sightings");
 
             return null;
         }), new HandlebarsTemplateEngine());
@@ -159,7 +165,8 @@ public class App {
             List<Sighting> sightings =Sighting.all();
             model.put("Animal", Animal.class);
             model.put("sightings", sightings);
-            return new ModelAndView(model, "sighting-view.hbs");
+
+            return new ModelAndView(model, "Sightings.hbs");
         }), new HandlebarsTemplateEngine());
 
         //Delete a Sighting
@@ -171,6 +178,6 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-
     }
+
 }
