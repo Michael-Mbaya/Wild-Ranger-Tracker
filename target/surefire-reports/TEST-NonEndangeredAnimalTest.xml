@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="NonEndangeredAnimalTest" time="1.058" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="NonEndangeredAnimalTest" time="1.086" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.8+10"/>
@@ -62,11 +62,11 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="NonEndangeredAnimalTest" name="save_insertsObjectIntoDatabase_Animal" time="0.698"/>
-  <testcase classname="NonEndangeredAnimalTest" name="getHealth_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.047"/>
-  <testcase classname="NonEndangeredAnimalTest" name="equals_returnsTrueIfNameIsSame_true" time="0.036"/>
-  <testcase classname="NonEndangeredAnimalTest" name="getAge_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.038"/>
-  <testcase classname="NonEndangeredAnimalTest" name="getName_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.034"/>
-  <testcase classname="NonEndangeredAnimalTest" name="animalInstantiatesCorrectly_true" time="0.032"/>
-  <testcase classname="NonEndangeredAnimalTest" name="all_ReturnsAllInstancesOfAnimal_true" time="0.173"/>
+  <testcase classname="NonEndangeredAnimalTest" name="save_insertsObjectIntoDatabase_Animal" time="0.693"/>
+  <testcase classname="NonEndangeredAnimalTest" name="getHealth_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.043"/>
+  <testcase classname="NonEndangeredAnimalTest" name="equals_returnsTrueIfNameIsSame_true" time="0.04"/>
+  <testcase classname="NonEndangeredAnimalTest" name="getAge_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.04"/>
+  <testcase classname="NonEndangeredAnimalTest" name="getName_nonEndangeredAnimalInstantiatesWithName_Lion" time="0.037"/>
+  <testcase classname="NonEndangeredAnimalTest" name="animalInstantiatesCorrectly_true" time="0.036"/>
+  <testcase classname="NonEndangeredAnimalTest" name="all_ReturnsAllInstancesOfAnimal_true" time="0.197"/>
 </testsuite>

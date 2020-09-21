@@ -3,7 +3,7 @@ import org.sql2o.Connection;
 import java.util.List;
 
 
-public class EndangeredAnimal extends Animal {
+public class EndangeredAnimal extends Animal implements SaveDelete {
 
     public static final String ANIMAL_TYPE = "endangered";
 
@@ -48,7 +48,7 @@ public class EndangeredAnimal extends Animal {
         }
     }
 
-
+    @Override
     public void save() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (name, age, health, type) VALUES (:name, :age,:health, :type)";
@@ -61,6 +61,7 @@ public class EndangeredAnimal extends Animal {
         }
     }
 
+    @Override
     public void delete() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "DELETE FROM animals WHERE id = :id;";

@@ -128,9 +128,6 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<EndangeredAnimal> endangeredAnimals = EndangeredAnimal.allAnimals();
             List<Object> animals = new ArrayList<Object>();
-//            for (int i=0;i<nonEndangeredAnimals.size();i++){
-//                animals.add(NonEndangeredAnimal.all().get(i));
-//            }
             for (int i=0;i<endangeredAnimals.size();i++){
                 animals.add(EndangeredAnimal.allAnimals().get(i));
             }

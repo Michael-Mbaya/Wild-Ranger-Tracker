@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class Sighting {
+public class Sighting implements SaveDelete {
 
     private String rangerName;
     private int animalId;
@@ -84,6 +84,7 @@ public class Sighting {
         }
     }
 
+    @Override
     public void save() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sightings (rangerName, animalId, location, sightingDate) VALUES (:rangerName, :animalId, :location, :sightingDate);";
@@ -100,6 +101,7 @@ public class Sighting {
 
     }
 
+    @Override
     public void delete() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "DELETE FROM sightings WHERE id = :id;";
