@@ -11,7 +11,7 @@ import static spark.Spark.staticFileLocation;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class App {
-    static int getHerokuAssignedPort() {
+    private static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
@@ -45,14 +45,14 @@ public class App {
 
         //Saves endangered form data
         post("/endangered/new", ((request, response) -> {
-            Map<String, Object> model = new HashMap<>();
+//            Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
 
             try {
                 EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name,age,health);
-                if( endangeredAnimal.age.equals("") || endangeredAnimal.health.equals("") ){
+                if( endangeredAnimal.name.equals("") || endangeredAnimal.age.equals("") || endangeredAnimal.health.equals("") ){
                     endangeredAnimal.delete();
                     System.out.println("\nPlease fill in all the fields.\n");
                     showMessageDialog(null, "Please fill all the fields in this Form");
@@ -80,7 +80,7 @@ public class App {
 
         //Delete endangered animal
         get("/endangered/:id/delete", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
+//            Map<String, Object> model = new HashMap<String, Object>();
             EndangeredAnimal.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/endangered");
 
@@ -95,14 +95,14 @@ public class App {
 
         //Saves non-endangered form data
         post("/non-endangered/new", ((request, response) -> {
-            Map<String, Object> model = new HashMap<>();
+//            Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
 
             try {
                 NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
-                if( nonEndangeredAnimal.age.equals("") || nonEndangeredAnimal.health.equals("") ){
+                if( nonEndangeredAnimal.name.equals("") || nonEndangeredAnimal.age.equals("") || nonEndangeredAnimal.health.equals("") ){
                     nonEndangeredAnimal.delete();
                     System.out.println("\nPlease fill in all the fields.\n");
                     showMessageDialog(null, "Please fill all the fields in this Form");
@@ -130,7 +130,7 @@ public class App {
 
         //Delete non-endangered animal
         get("/non-endangered/:id/delete", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
+//            Map<String, Object> model = new HashMap<String, Object>();
             NonEndangeredAnimal.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/non-endangered");
 
@@ -141,7 +141,7 @@ public class App {
         get("/sighting/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<EndangeredAnimal> endangeredAnimals = EndangeredAnimal.allAnimals();
-            List<Object> animals = new ArrayList<Object>();
+            List<Object> animals = new ArrayList<>();
             for (int i=0;i<endangeredAnimals.size();i++){
                 animals.add(EndangeredAnimal.allAnimals().get(i));
             }
@@ -152,7 +152,7 @@ public class App {
 
         //Saves sightings
         post("/sighting/new", ((request, response) -> {
-            Map<String, Object> model = new HashMap<>();
+//            Map<String, Object> model = new HashMap<>();
             String rangerName = request.queryParams("rangerName");
             int animalId = Integer.parseInt(request.queryParams("animalId"));
             String location = request.queryParams("location");
@@ -189,7 +189,7 @@ public class App {
 
         //Delete a Sighting
         get("/sightings/:id/delete", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
+//            Map<String, Object> model = new HashMap<String, Object>();
             Sighting.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/sightings");
 
