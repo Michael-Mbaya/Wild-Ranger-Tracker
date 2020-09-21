@@ -34,10 +34,16 @@ public class EndangeredAnimalTest {
     }
 
     @Test
+    public void getType_EndangeredAnimalInstantiatesWithType_endangered() {
+        EndangeredAnimal testAnimalEndangered = new EndangeredAnimal("Rhino","young","healthy");
+        assertEquals("endangered", testAnimalEndangered.getType());
+    }
+
+    @Test
     public void equalsReturnsTrueIfNameIsSame_true() {
         EndangeredAnimal testAnimalEndangered = new EndangeredAnimal("Rhino","young","healthy");
         EndangeredAnimal otherAnimalEndangered = new EndangeredAnimal("Rhino","young","healthy");
-        assertTrue(testAnimalEndangered.equals(otherAnimalEndangered));
+        assertEquals(testAnimalEndangered, otherAnimalEndangered);
 
     }
 
@@ -45,7 +51,7 @@ public class EndangeredAnimalTest {
     public void save_returnsTrueIfDescriptionsAreSame_true() {
         EndangeredAnimal testAnimalEndangered = new EndangeredAnimal("Rhino", "healthy", "young");
         testAnimalEndangered.save();
-        assertTrue(EndangeredAnimal.all().get(0).equals(testAnimalEndangered));
+        assertEquals(EndangeredAnimal.all().get(0), testAnimalEndangered);
     }
 
     @Test
@@ -62,7 +68,7 @@ public class EndangeredAnimalTest {
         EndangeredAnimal otherAnimalEndangered = new EndangeredAnimal("Elephant", "healthy", "young");
         testAnimalEndangered.save();
         otherAnimalEndangered.save();
-        assertTrue(EndangeredAnimal.all().get(0).equals(testAnimalEndangered));
-        assertTrue(EndangeredAnimal.all().get(1).equals(otherAnimalEndangered));
+        assertEquals(EndangeredAnimal.all().get(0), testAnimalEndangered);
+        assertEquals(EndangeredAnimal.all().get(1), otherAnimalEndangered);
     }
 }

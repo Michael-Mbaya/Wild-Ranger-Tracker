@@ -45,7 +45,7 @@ public class App {
 
         //Saves endangered form data
         post("/endangered/new", ((request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
+
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
@@ -80,7 +80,7 @@ public class App {
 
         //Delete endangered animal
         get("/endangered/:id/delete", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
+
             EndangeredAnimal.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/endangered");
 
@@ -95,7 +95,7 @@ public class App {
 
         //Saves non-endangered form data
         post("/non-endangered/new", ((request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
+
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
@@ -130,7 +130,7 @@ public class App {
 
         //Delete non-endangered animal
         get("/non-endangered/:id/delete", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
+
             NonEndangeredAnimal.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/non-endangered");
 
@@ -152,7 +152,7 @@ public class App {
 
         //Saves sightings
         post("/sighting/new", ((request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
+
             String rangerName = request.queryParams("rangerName");
             int animalId = Integer.parseInt(request.queryParams("animalId"));
             String location = request.queryParams("location");
@@ -189,7 +189,7 @@ public class App {
 
         //Delete a Sighting
         get("/sightings/:id/delete", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
+
             Sighting.find(Integer.parseInt(request.params(":id"))).delete();
             response.redirect("/sightings");
 
