@@ -59,6 +59,17 @@ public class App {
             else {
                 response.redirect("/endangered");
             }
+
+//            try {
+//                EndangeredAnimal endangeredAnimal  = new EndangeredAnimal(name,age,health);
+//                endangeredAnimal.save();
+//                response.redirect("/endangered");
+//            } catch (IllegalArgumentException exception) {
+//                System.out.println("\nPlease fill in all input fields.\n");
+//                showMessageDialog(null, "Please fill all fields correctly for This Form");
+//                response.redirect("/endangered/new");
+//            }
+
             return null;
         }), new HandlebarsTemplateEngine());
 
@@ -102,6 +113,16 @@ public class App {
             else {
                 response.redirect("/non-endangered");
             }
+
+//            try {
+//                NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
+//                nonEndangeredAnimal.save();
+//                response.redirect("/non-endangered");
+//            } catch (IllegalArgumentException exception) {
+//                System.out.println("\nPlease fill in all input fields.\n");
+//                showMessageDialog(null, "Please fill all fields correctly for This Form");
+//                response.redirect("/non-endangered/new");
+//            }
 
             return null;
         }), new HandlebarsTemplateEngine());
