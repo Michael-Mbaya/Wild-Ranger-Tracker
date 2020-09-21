@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="SightingTest" time="0.706" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="SightingTest" time="0.158" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.8+10"/>
@@ -62,14 +62,14 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="SightingTest" name="save_recordsTimeOfCreationInDatabase" time="0.11"/>
-  <testcase classname="SightingTest" name="getRangerName_InstantiatesCorrectlyWithRangerName_Hiram" time="0.032"/>
-  <testcase classname="SightingTest" name="getLocation_InstantiatesCorrectlyWithLocation_ZoneA" time="0.034"/>
-  <testcase classname="SightingTest" name="equals_returnsTrueIfInstanceIsSame_true" time="0.031"/>
-  <testcase classname="SightingTest" name="save_successfullyAddsSightingToDatabase_List" time="0.084"/>
-  <testcase classname="SightingTest" name="findId_returnsSightingsId" time="0.155"/>
-  <testcase classname="SightingTest" name="getAnimalId_InstantiatesCorrectlyWithAnimalID_1" time="0.02"/>
-  <testcase classname="SightingTest" name="all_returnsAllInstancesOfSightings_true" time="0.126"/>
-  <testcase classname="SightingTest" name="Sighting_InstantiatesCorrectly_true" time="0.023"/>
-  <testcase classname="SightingTest" name="save_assignsIdToSighting" time="0.091"/>
+  <testcase classname="SightingTest" name="save_recordsTimeOfCreationInDatabase" time="0.025"/>
+  <testcase classname="SightingTest" name="getRangerName_InstantiatesCorrectlyWithRangerName_Hiram" time="0.004"/>
+  <testcase classname="SightingTest" name="getLocation_InstantiatesCorrectlyWithLocation_ZoneA" time="0.005"/>
+  <testcase classname="SightingTest" name="equals_returnsTrueIfInstanceIsSame_true" time="0.006"/>
+  <testcase classname="SightingTest" name="save_successfullyAddsSightingToDatabase_List" time="0.02"/>
+  <testcase classname="SightingTest" name="findId_returnsSightingsId" time="0.036"/>
+  <testcase classname="SightingTest" name="getAnimalId_InstantiatesCorrectlyWithAnimalID_1" time="0.006"/>
+  <testcase classname="SightingTest" name="all_returnsAllInstancesOfSightings_true" time="0.029"/>
+  <testcase classname="SightingTest" name="Sighting_InstantiatesCorrectly_true" time="0.006"/>
+  <testcase classname="SightingTest" name="save_assignsIdToSighting" time="0.021"/>
 </testsuite>

@@ -51,7 +51,7 @@ public class App {
             String health = request.queryParams("health");
             EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,age,health);
             newEndangeredAnimal.save();
-            if ( newEndangeredAnimal.name.equals("") || newEndangeredAnimal.age.equals("Select Age") || newEndangeredAnimal.health.equals("Select Health of Animal") ){
+            if ( newEndangeredAnimal.name.equals("") || newEndangeredAnimal.age.equals("") || newEndangeredAnimal.health.equals("") ){
                    newEndangeredAnimal.delete();
                    response.redirect("/endangered/new");
                 showMessageDialog(null, "Please fill all the fields\nName, Age or Health have to be chosen. Please Input correctly");
@@ -105,7 +105,7 @@ public class App {
             NonEndangeredAnimal newNonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
             newNonEndangeredAnimal.save();
 
-            if ( newNonEndangeredAnimal.name.equals("") || newNonEndangeredAnimal.age.equals("Select Age") || newNonEndangeredAnimal.health.equals("Select Health of Animal") ){
+            if ( newNonEndangeredAnimal.name.equals("") || newNonEndangeredAnimal.age.equals("") || newNonEndangeredAnimal.health.equals("") ){
                 newNonEndangeredAnimal.delete();
                 response.redirect("/non-endangered/new");
                 showMessageDialog(null, "Please fill all the fields\nName, Age or Health have to be chosen. Please Input correctly");
