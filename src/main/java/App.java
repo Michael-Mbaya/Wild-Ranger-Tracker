@@ -181,7 +181,7 @@ public class App {
         get("/sightings", ((request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Sighting> sightings =Sighting.all();
-            model.put("Animal", Animal.class);
+//            model.put("Animal", Animal.class);
             model.put("sightings", sightings);
 
             return new ModelAndView(model, "Sightings.hbs");
