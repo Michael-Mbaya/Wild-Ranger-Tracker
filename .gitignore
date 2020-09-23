@@ -71,4 +71,6 @@ settings.gradle
 .idea
 .idea/
 
+#Maven folder#
+############
 target

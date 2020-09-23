@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
-import static spark.Spark.staticFileLocation;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class App {
@@ -50,7 +49,7 @@ public class App {
             String age = request.queryParams("age");
             String health = request.queryParams("health");
 
-            try {
+//            try {
                 EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name,age,health);
                 if( endangeredAnimal.name.equals("") || endangeredAnimal.age.equals("") || endangeredAnimal.health.equals("") ){
                     endangeredAnimal.delete();
@@ -61,11 +60,11 @@ public class App {
                     endangeredAnimal.save();
                     response.redirect("/endangered");
                 }
-            } catch (IllegalArgumentException | NullPointerException exception) {
-                System.out.println("\nPlease fill in all input fields.\n");
-                showMessageDialog(null, "Please fill all the fields in this Form");
-                response.redirect("/sighting/new");
-            }
+//            } catch (IllegalArgumentException | NullPointerException exception) {
+//                System.out.println("\nPlease fill in all input fields.\n");
+//                showMessageDialog(null, "Please fill all the fields in this Form");
+//                response.redirect("/sighting/new");
+//            }
 
             return null;
         }), new HandlebarsTemplateEngine());
@@ -94,13 +93,13 @@ public class App {
         }), new HandlebarsTemplateEngine());
 
         //Saves non-endangered form data
-        post("/non-endangered/new", ((request, response) -> {
+        post("/non-endangered/new", (request, response) -> {
 
             String name = request.queryParams("name");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
 
-            try {
+//            try {
                 NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(name,age,health);
                 if( nonEndangeredAnimal.name.equals("") || nonEndangeredAnimal.age.equals("") || nonEndangeredAnimal.health.equals("") ){
                     nonEndangeredAnimal.delete();
@@ -111,14 +110,14 @@ public class App {
                     nonEndangeredAnimal.save();
                     response.redirect("/non-endangered");
                 }
-            } catch (IllegalArgumentException | NullPointerException exception) {
-                System.out.println("\nPlease fill in all input fields.\n");
-                showMessageDialog(null, "Please fill all the fields in this Form");
-                response.redirect("/sighting/new");
-            }
+//            } catch (IllegalArgumentException | NullPointerException exception) {
+//                System.out.println("\nPlease fill in all input fields.\n");
+//                showMessageDialog(null, "Please fill all the fields in this Form");
+//                response.redirect("/sighting/new");
+//            }
 
             return null;
-        }), new HandlebarsTemplateEngine());
+        }, new HandlebarsTemplateEngine());
 
         //Displays non-endangered animals
         get("/non-endangered", ((request, response) -> {
